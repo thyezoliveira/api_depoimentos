@@ -46,4 +46,5 @@ async def listar_depoimentos():
         raise HTTPException(status_code=400, detail=str(e))
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 8000))
+    app.run("main:app", host="0.0.0.0", port=port)
