@@ -34,6 +34,10 @@ class Depoimento(BaseModel):
     nota: int
     nicho: str
 
+@app.get("/health_check")
+async def health_check():
+    return {"status": "ok"}
+
 @app.post("/depoimentos")
 async def criar_depoimento(depoimento: Depoimento):
     try:
